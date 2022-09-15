@@ -3,15 +3,8 @@ function exercise1() {
     const words = textboxValue.split(' ');
     
     console.log(words.length);
-    let i = 0;
 
-
-    while(i < words.length) {
-        console.log(`${words[i]} (${words[i].length})`);
-        i++;
-    }
-
-    
+    words.forEach(word => console.log(`${word} (${word.length})`));
 }
 
 
@@ -20,29 +13,31 @@ function exercise2() {
     words = textboxValue.split(' ');
 
 
-    
     const sortedWords = words.sort((a, b) => a.length - b.length);
-    
-    
-    let i = 0;
-    
-    while(i < sortedWords.length) {
-        console.log(`${sortedWords[i]}`);
-        i++;
-    }
-
+    sortedWords.forEach(wordSort => console.log(`${wordSort}`));
+   
     reversedWords = words.reverse();
-    let x = 0;
-    while(x < reversedWords.length) {
-        console.log(`${reversedWords[x]}`);
-        x++;
-    }
+    reversedWords.forEach(wordReverse => console.log(`${wordReverse}`));
+
 }
 
 
 function exercise3() {
     var textboxValue = document.getElementById('txt').value;
-    words = textboxValue.split(' ');
+    const words = textboxValue.split(' ');
+
+    let obj = {};
+
+    for(var i = 0; i < words.length; i++) {
+        if (obj[words[i]] === undefined) {
+            obj[words[i]] = 1;
+        } else {
+            obj[words[i]]++;
+        }
+    };
+
+    
+        
+    Object.values(obj).forEach((frequency, word) => console.log(`${words[word]} ${frequency}`));
+   //Object.values(obj).forEach((freqSort))
 }
-
-
