@@ -26,18 +26,25 @@ function exercise3() {
     var textboxValue = document.getElementById('txt').value;
     const words = textboxValue.split(' ');
 
-    let obj = {};
 
-    for(var i = 0; i < words.length; i++) {
-        if (obj[words[i]] === undefined) {
-            obj[words[i]] = 1;
+    let obj = [];
+
+    words.forEach((word) => {
+        if (obj[word] === undefined) {
+            obj[word] = 1;
         } else {
-            obj[words[i]]++;
+            obj[word]++;
         }
-    };
-
+    });
     
-        
-    Object.values(obj).forEach((frequency, word) => console.log(`${words[word]} ${frequency}`));
-   //Object.values(obj).forEach((freqSort))
+    for(const frequency in obj){console.log(`${frequency} ${obj[frequency]}`)};
+
+
+    const freqArray = Array.from(Object.keys(obj));
+    freqArray.sort((a, b) => obj[a] - obj[b]);
+
+    freqReverse = freqArray.reverse();
+
+    freqReverse.forEach(freq => console.log(`${freq}`))
+
 }
