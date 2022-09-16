@@ -67,3 +67,16 @@ function exercise4() {
     for(const frequency in freq){console.log(`${frequency} ${freq[frequency]}`)};
 
 }
+
+function exercise5() {
+    var textboxValue = document.getElementById('txt');
+    var alphabets = new Map ([['a', '4'], ['e', '3'], ['l', '1'], ['t', '7'], ['r', '2']]);
+
+    text = textboxValue.value.toLowerCase();
+    for(var i=0; i < text.length; i++) {
+        if (alphabets.get(text[i])) {
+            text = text.replace(text[i], alphabets.get(text[i]));
+        } 
+    }
+    console.log(text);
+}
