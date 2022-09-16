@@ -48,3 +48,22 @@ function exercise3() {
     freqReverse.forEach(freq => console.log(`${freq}`))
 
 }
+
+function exercise4() {
+    var textboxValue = document.getElementById('txt').value;
+    const noWhitespace = textboxValue.replace(/\s/g, '');
+    const letters = noWhitespace.split('');
+
+    let freq = [];
+
+    letters.forEach((letter) => {
+        if(freq[letter] === undefined) {
+            freq[letter] = 1;
+        } else {
+            freq[letter]++;
+        }
+    });
+
+    for(const frequency in freq){console.log(`${frequency} ${freq[frequency]}`)};
+
+}
